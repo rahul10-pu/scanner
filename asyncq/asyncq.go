@@ -31,7 +31,9 @@ func (t *TaskWorker) Start() {
 			select {
 			case task := <-t.TaskChannel:
 				log.Printf("Asynchronous task worker #%d is performing a task.\n", t.ID)
+				task.StampScanningAt()
 				task.Perform()
+				task.StampFinishedAt()
 
 			}
 		}

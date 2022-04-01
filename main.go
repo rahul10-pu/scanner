@@ -6,15 +6,20 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/go-git/go-git/v5"
 )
 
 func main() {
 
-	//doHashWalk("/Users/rahulkumar/CRUD-with-GRPC-Golang")
-
-	a, err := git.PlainClone(".", false, &git.CloneOptions{
+	// now := time.Now() //doHashWalk("/Users/rahulkumar/CRUD-with-GRPC-Golang")
+	// id := uuid.New()
+	// fmt.Println(id.String())
+	name := "https://github.com/go-git/go-git"
+	re := strings.Split(name, "/")
+	log.Println(re[4])
+	a, err := git.PlainClone("hehe", false, &git.CloneOptions{
 		URL:      "https://github.com/go-git/go-git",
 		Progress: os.Stdout,
 	})
